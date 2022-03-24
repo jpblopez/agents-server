@@ -1,36 +1,48 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-const jwt = require('jsonwebtoken')
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
 
-app.use(cors())
 
-app.use((req, res, next) => {
-    console.log(Object.keys(req))
-    next()
-})
+const filter = require('./data/filter.json')
+const agentBackoffice = require('./data/agent-backoffice.json')
+const groups = require('./data/groups.json')
+const taskStates = require('./data/tasks-states.json')
+
+app.use(cors());
 
 app.post('/auth/login', (req, res) => {
-    const payload = {
-        user: "John",
-        id: 111
-    }
+  const payload = {
+    user: 'John',
+    id: 111,
+  };
 
-    const jwtToken = jwt.sign(payload, "randomsecret", 10)
-    
-    const idToken = {
-        jwtToken,
-        payload
-    }
-    
-    return res.status(200).json({
-        idToken
-    })
+  const jwtToken = jwt.sign(payload, 'randomsecret');
 
-    // Utils.setCookie('trainToken', res.data.idToken.jwtToken, 1);
-    // Utils.setCookie('trainCurrentPayload', JSON.stringify(res.data.idToken.payload), 1);
-    // Utils.setCookie('trainCurrentUser', res.data.idToken.payload
-})
+  const idToken = {
+    jwtToken,
+    payload,
+  };
 
+  return res.status(200).json({
+    idToken,
+  });
+});
 
-module.exports = app
+app.post('/inspection/tasks/filter', (req, res) => {
+  return res.status(200).json(filter);
+});
+
+app.get('/inspection/groups', (req, res) => {
+  return res.status(200).json(groups);
+});
+
+app.get('/tasks-states', (req, res) => {
+  return res.status(200).json(taskStates);
+});
+
+app.use('/users/groups/agents,backoffice', (req, res) => {
+  return res.status(200).json(agentBackoffice);
+});
+
+module.exports = app;
