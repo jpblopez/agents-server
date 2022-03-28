@@ -1,0 +1,66 @@
+[
+  {
+    "tenant": { "name": "train", "type": "client" },
+    "executionDetails": {
+      "agent": { "agentName": "nadav", "agentId": "bfb037cf-0446-4ea4-a7c9-fbc7fbd89d0d" },
+      "startTime": 1647764220000,
+      "endTime": 1647771420000
+    },
+    "state": {
+      "availableStates": ["new", "assigned", "inProgress", "done", "approved", "canceled"],
+      "currentState": {
+        "name": "inProgress",
+        "tenant": "train",
+        "key": 2777,
+        "updatedAt": "2022-03-20T08:20:01.154Z",
+        "createdAt": "2022-03-20T08:20:01.154Z",
+        "id": "6236e3b1c72ce968e49aad8c"
+      },
+      "stateHistory": [
+        {
+          "name": "assigned",
+          "tenant": "train",
+          "key": 9178,
+          "updatedAt": "2022-03-20T08:20:01.154Z",
+          "createdAt": "2022-03-20T08:20:01.154Z",
+          "id": "6236e3b1c72ce968e49aad8a"
+        },
+        {
+          "name": "inProgress",
+          "tenant": "train",
+          "key": 2777,
+          "updatedAt": "2022-03-20T08:20:01.154Z",
+          "createdAt": "2022-03-20T08:20:01.154Z",
+          "id": "6236e3b1c72ce968e49aad8b"
+        }
+      ]
+    },
+    "name": "בקרת נסיעה מנהלתית",
+    "type": "61c05a8d534fdb65cd03b42c",
+    "groupBy": [],
+    "tags": [],
+    "isArchived": false,
+    "createdAt": "2022-01-25T11:20:57.570Z",
+    "updatedAt": "2022-03-20T08:20:01.154Z",
+    "id": "61efdd19f241d89d7f313ae0",
+    "inspection": {
+      "id": "61efdd19edd9c600356ed910",
+      "updateDate": "2022-03-20T08:18:06.682Z",
+      "name": "נסיעה מנהלתית",
+      "group": {
+        "id": "61c05a8d534fdb65cd03b42c",
+        "name": "בקרת נסיעה מנהלתית",
+        "settings": {},
+        "group_id": 8
+      },
+      "data": [],
+      "inspection_number": 5409,
+      "details": [],
+      "remote_task_id": "61efdd19f241d89d7f313ae0",
+      "settings": { "route_id": 30022, "time": "08:17 - 10:17" },
+      "title": "",
+      "time": "08:17 - 10:17",
+      "inspection_name": "בקרת נסיעה מנהלתית"
+    }
+  }
+]
