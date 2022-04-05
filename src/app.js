@@ -15,6 +15,7 @@ const filterAll = require('./data/filter-all.json')
 const agentBackoffice = require('./data/agent-backoffice.json')
 const groups = require('./data/groups.json')
 const taskStates = require('./data/tasks-states.json')
+const inspectionTasks = require('./data/inspection-tasks.json')
 
 app.use(cors());
 app.use(express.json())
@@ -61,5 +62,25 @@ app.get('/tasks-states', (req, res) => {
 app.use('/users/groups/agents,backoffice', (req, res) => {
   return res.status(200).json(agentBackoffice);
 });
+
+app.post('/auth/register', (req, res) => {
+  agentBackoffice.push({
+    "_id": Math.floor(Math.random() * 10000),
+    "name": req.body.name,
+    "groups": req.body.groups,
+    "sub": "d3a90389-2d1d-4fcc-95c6-1dcb24de2449",
+    "email": req.body.email,
+    "tenants": ["train"],
+    "__v": 0
+  })
+
+  return res.status(200).json({
+    message: 'success'
+  })
+})
+
+app.get('/inspection/tasks/*', (req, res) => {
+  return res.status(200).json(inspectionTasks)
+})
 
 module.exports = app;
